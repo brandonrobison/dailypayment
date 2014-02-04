@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dailypayment</title>
+  <title>Daily Payment</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
-<body>
+<body class="pull_top">
+
+<% if params[:action] == "home"
+	navbar1 = "fixed"
+	navbar2 = " pull-right"
+else
+	navbar1 = "static"
+	navbar2 = ""
+end %>
+	<div class="navbar navbar-inverse navbar-<%=navbar1%>-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle<%=navbar2%>" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <strong><%= link_to "DAILY PAYMENT", home_path, :class => "navbar-brand" %></strong>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+					<%= active_link_to "HOME", home_path, :wrap_tag => :li %>
+					<li class="dropdown">
+                        <a href="/learn" class="dropdown-toggle" data-toggle="dropdown">LEARN <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Alternative Loans", alternative_loans_path %></li>
+                            <li><%= link_to "Bank Loans", bank_loans_path %></li>
+                            <li><%= link_to "SBA Loans", sba_loans_path %></li>
+                            <li><%= link_to "Merchant Cash Advance", :controller => :learn, :action => :merchant_cash_advance %></li>
+                            <li><a href="">Equipment Leasing</a></li>
+                            <li><a href="">Factoring</a></li>
+                            <li><a href="">Direct Lenders</a></li>
+                            <li><a href="">Brokers</a></li>
+							<li><a href="">Marketing Sites</a></li>
+                        </ul>
+                    </li>
+					<%= active_link_to "TESTIMONIALS", testimonials_path, :wrap_tag => :li %>
+					<%= active_link_to "FAQ", faq_path, :wrap_tag => :li %>
+                    <%= active_link_to "CONTACT US", contact_us_path, :wrap_tag => :li %>
+                    <li><a href="/">BLOG</a></li>
+					<li><a href="/">Get a Loan</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 <%= yield %>
 
+<%= render "partials/footer" %>
+
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
