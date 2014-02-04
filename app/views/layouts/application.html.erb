@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Daily Payment</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
@@ -39,12 +39,12 @@ end %>
                             <li><%= link_to "Alternative Loans", alternative_loans_path %></li>
                             <li><%= link_to "Bank Loans", bank_loans_path %></li>
                             <li><%= link_to "SBA Loans", sba_loans_path %></li>
-                            <li><%= link_to "Merchant Cash Advance", :controller => :learn, :action => :merchant_cash_advance %></li>
-                            <li><a href="">Equipment Leasing</a></li>
-                            <li><a href="">Factoring</a></li>
-                            <li><a href="">Direct Lenders</a></li>
-                            <li><a href="">Brokers</a></li>
-							<li><a href="">Marketing Sites</a></li>
+                            <li><%= link_to "Merchant Cash Advance", merchant_cash_advance_path %></li>
+                            <li><%= link_to "Equipment Leasing", equipment_leasing_path %></li>
+                            <li><%= link_to "Factoring", factoring_path %></li>
+                            <li><%= link_to "Direct Lenders", direct_lenders_path %></li>
+                            <li><%= link_to "Brokers", brokers_path %></li>
+							<li><%= link_to "Marketing Sites", marketing_sites_path %></li>
                         </ul>
                     </li>
 					<%= active_link_to "TESTIMONIALS", testimonials_path, :wrap_tag => :li %>
@@ -61,6 +61,6 @@ end %>
 
 <%= render "partials/footer" %>
 
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application" %>
 </body>
 </html>

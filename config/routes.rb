@@ -2,26 +2,23 @@ Dailypayment::Application.routes.draw do
   
   root :to => redirect("/home")
   
-  resources "learn/alternative-loans", :controller => :learn, :action => :alternative_loans, :as => :alternative_loans
-  resources "learn/bank-loans", :controller => :learn, :action => :bank_loans, :as => :bank_loans
-  resources "learn/sba-loans", :controller => :learn, :action => :sba_loans, :as => :sba_loans
-  resources "learn/merchant-cash-advance", :controller => :learn, :action => :merchant_cash_advance, :as => :merchant_cash_advance
-  resources "learn/equipment-leasing", :controller => :learn, :action => :equipment_leasing, :as => :equipment_leasing
-  get "learn/factoring"
-  resources "learn/direct-lenders", :controller => :learn, :action => :direct_lenders, :as => :direct_lenders
-  get "learn/brokers"
-  resources "learn/marketing-sites", :controller => :learn, :action => :marketing_sites, :as => :marketing_sites
-  
+  get "learn/alternative-loans", :to => "learn#alternative_loans", :as => :alternative_loans
+  get "learn/bank-loans", :to => "learn#bank_loans", :as => :bank_loans
+  get "learn/sba-loans", :to => "learn#sba_loans", :as => :sba_loans
+  get "learn/merchant-cash-advance", :to => "learn#merchant_cash_advance", :as => :merchant_cash_advance
+  get "learn/equipment-leasing", :to => "learn#equipment_leasing", :as => :equipment_leasing
+  get "learn/factoring", :to => "learn#factoring", :as => :factoring
+  get "learn/direct-lenders", :to => "learn#direct_lenders", :as => :direct_lenders
+  get "learn/brokers", :to => "learn#brokers", :as => :brokers
+  get "learn/marketing-sites", :to => "learn#marketing_sites", :as => :marketing_sites
+
   get "home", to: "static_info#home"
   get "testimonials", to: "static_info#testimonials"
   get "faq", to: "static_info#faq"
-  resources "about-us", :controller => :static_info, :action => :about_us, :as => :about_us
-  resources "contact-us", :controller => :static_info, :action => :contact_us, :as => :contact_us
-  resources "privacy-policy", :controller => :static_info, :action => :privacy_policy, :as => :privacy_policy
-  resources "terms-of-use", :controller => :static_info, :action => :terms_of_use, :as => :terms_of_use
-
-	
-	
+  get "about-us", :to => "static_info#about_us", :as => :about_us
+  get "contact-us", :to => "static_info#contact_us", :as => :contact_us
+  get "privacy-policy", :to => "static_info#privacy_policy", :as => :privacy_policy
+  get "terms-of-use", :to => "static_info#terms_of_use", :as => :terms_of_use
 	
 	
   # The priority is based upon order of creation: first created -> highest priority.
