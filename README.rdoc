@@ -1,5 +1,6 @@
 == README
 
+Testing some changes in the default dir.
 Nothing in the readme file just yet. Oh well.
 
 Things to cover in the future readme file:
